@@ -95,7 +95,7 @@ dependencies - users must manually 'build jar' first.
     <property name="xalan.endorsed.dir" value="${xalan.lib.dir}/endorsed"/>
     <property name="xalan.endorsed.jvmarg" value="-Djava.endorsed.dirs=&quot;${xalan.endorsed.dir}&quot;" />
     <property name="xalan.tools.dir" value="${xalan.relpath}/tools"/>       
-    <property name="xalan.build.dir" value="${xalan.relpath}/build"/> 
+    <property name="xalan.build.dir" value="${xalan.relpath}/lib"/> 
     <property name="xalan.xdocs.dir" value="${xalan.relpath}/xdocs"/>
     <property name="xalan.generator.styletargz" value="${xalan.xdocs.dir}/xml-site-style.tar.gz"/>
 

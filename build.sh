@@ -33,15 +33,19 @@ uname | grep WIN && CLS_PATH_SEP=\;
 
 # If PARSER_JAR is not set, default to xercesImpl.jar
 if [ "$PARSER_JAR" = "" ] ; then
-    PARSER_JAR=../java/lib/endorsed/xercesImpl.jar
+    PARSER_JAR=../java/lib/xercesImpl.jar
 fi
 
 if [ "$XML_APIS_JAR" = "" ]; then
-    XML_APIS_JAR=../java/lib/endorsed/xml-apis.jar
+    XML_APIS_JAR=../java/lib/xml-apis.jar
 fi
 
 if [ "$SERIALIZER_JAR" = "" ]; then
     SERIALIZER_JAR=../java/lib/serializer.jar
+fi
+
+if [ "$XALAN_JAR" = "" ]; then
+    XALAN_JAR=../java/lib/xalan.jar
 fi
 
 if [ "$ANT_HOME" = "" ] ; then
@@ -67,8 +71,9 @@ else
 fi
  
 # add in the dependency .jar files (copied from ant)
-DIRLIBS=${ANT_HOME}/lib/*.jar
-_ANT_CP=$ANT_HOME/tools/ant.jar
+DIRLIBS=${ANT_HOME}/tools/*.jar
+#_ANT_CP=$ANT_HOME/tools/ant.jar
+_ANT_CP=
 for i in ${DIRLIBS}
 do
     # if the directory is empty, then it will return the input string
@@ -90,7 +95,7 @@ if [ "$JARDIR" != "" ] ; then
         fi
     done
 else
-    CLASSPATH=${CLASSPATH}${CLS_PATH_SEP}${_ANT_CP}${CLS_PATH_SEP}${PARSER_JAR}${CLS_PATH_SEP}${XML_APIS_JAR}${CLS_PATH_SEP}${SERIALIZER_JAR}
+    CLASSPATH=${CLASSPATH}${CLS_PATH_SEP}${_ANT_CP}${CLS_PATH_SEP}${PARSER_JAR}${CLS_PATH_SEP}${XML_APIS_JAR}${CLS_PATH_SEP}${SERIALIZER_JAR}${CLS_PATH_SEP}${XALAN_JAR}
 fi
 
 if [ "$JAVA_HOME" != "" ] ; then
