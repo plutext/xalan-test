@@ -325,8 +325,7 @@ dependencies - users must manually 'build jar' first.
     <target name="run.xalantest.transfact.normal" unless="gump">
         <xalantest test="${testClass}"
             testType="${testType}"
-            classpathref="${xalantest.classpathref}"
-            bootclasspathref="boot.class.path"
+            classpathref="run.xalantest.default.normal.class.path"
             fork="${fork-tests}"
             failonerror="${fail-on-error}" >
             <!-- Explicitly set TransformerFactory property to use -->
@@ -355,8 +354,7 @@ dependencies - users must manually 'build jar' first.
     <target name="run.xalan-extension-test.normal" unless="gump">
         <xalantest test="${testClass}"
             testType="${testType}"
-            classpathref="${xalantest.classpathref}"
-            bootclasspathref="boot.class.path"
+            classpathref="run.xalantest.default.normal.class.path"
             fork="${fork-tests}"
             failonerror="${fail-on-error}" >
             <sysproperty key="org.apache.xalan.extensions.bsf.BSFManager"
