@@ -1,0 +1,6 @@
+java/build/
+results-conf/
+results-perf/
+smoketest/
+tests/extensions/java/build/
+outputs/
