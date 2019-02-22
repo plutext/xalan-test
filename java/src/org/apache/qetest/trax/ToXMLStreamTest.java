@@ -105,29 +105,29 @@ public class ToXMLStreamTest extends ToStreamTest
     {
     	reporter.testCaseInit("Verify setting output properties individually or whole blocks.");
 
-		String actual1 = outputCharacters(makeStream("ISO-8859-1"), "abc");
+		String actual1 = outputCharacters(makeStream("ISO8859_1"), "abc");
 		reporter.check(actual1, "abc", "Simple characters should come out unscathed");
-    	String actual1a = outputAttrValue(makeStream("ISO-8859-1"), "abc");
+    	String actual1a = outputAttrValue(makeStream("ISO8859_1"), "abc");
 		reporter.check(actual1a, "abc", "Simple characters should come out unscathed (as attribute value)");
 
 		String AELIG_OSLASH_ARING = "\u00e6\u00f8\u00e5"; // \
-    	String actual2 = outputCharacters(makeStream("ISO-8859-1"), AELIG_OSLASH_ARING);
+    	String actual2 = outputCharacters(makeStream("ISO8859_1"), AELIG_OSLASH_ARING);
 		reporter.check(actual2, AELIG_OSLASH_ARING, "ISO-8859-1 characters should come out as entities");
-    	String actual2a = outputAttrValue(makeStream("ISO-8859-1"), AELIG_OSLASH_ARING);
+    	String actual2a = outputAttrValue(makeStream("ISO8859_1"), AELIG_OSLASH_ARING);
 		reporter.check(actual2a, AELIG_OSLASH_ARING, "ISO-8859-1 characters should come out as entities (as attribute value)");
 
 		String CHINESE = "\u95c9\u6d77\u4e95"; // \
-    	String actual3 = outputCharacters(makeStream("ISO-8859-1"), CHINESE);
+    	String actual3 = outputCharacters(makeStream("ISO8859_1"), CHINESE);
 		reporter.check(actual3, "&#38345;&#28023;&#20117;", "BMP characters should come out as entities");
-    	String actual3a = outputAttrValue(makeStream("ISO-8859-1"), CHINESE);
+    	String actual3a = outputAttrValue(makeStream("ISO8859_1"), CHINESE);
 		reporter.check(actual3a, "&#38345;&#28023;&#20117;", "BMP characters should come out as entities (as attribute value)");
 
 		String utf16String = buildUtf16String(new int[] { 0x010030, 0xa4, 0x010032});
 		reporter.check(utf16String.length(), 5, "String with two astral characters and one in the BMP should have length of 5 UTF-16 code units");
 		
-    	String actual4 = outputCharacters(makeStream("ISO-8859-1"), utf16String);
+    	String actual4 = outputCharacters(makeStream("ISO8859_1"), utf16String);
 		reporter.check(actual4, "&#65584;\u00a4&#65586;", "Astral characters should come out as entities");
-    	String actual4a = outputAttrValue(makeStream("ISO-8859-1"), utf16String);
+    	String actual4a = outputAttrValue(makeStream("ISO8859_1"), utf16String);
 		reporter.check(actual4a, "&#65584;\u00a4&#65586;", "Astral characters should come out as entities (as attribute value)");
 		
         reporter.testCaseClose();
